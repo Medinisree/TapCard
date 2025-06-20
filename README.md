@@ -33,7 +33,7 @@ A modern, interactive Employee ID Card built with HTML, CSS, and JavaScript. Thi
 This project is open source and available under the [MIT License](LICENSE).
 
 
-**Made with ❤️ by [Medini Sree S]**
+**Made with ❤️ by Medini Sree S**
 
 ---
 
