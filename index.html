@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee ID Card</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="card_container" id="idCard">
+      <div class="card">
+        <!-- FRONT SIDE -->
+        <div class="frontcard">
+          <img
+            src="Medini Sree S Profile Photo.jpg"
+            alt="Medini Sree S Photo"
+            class="profile-pic"
+          />
+          <h2 class="profile-name">Medini Sree S</h2>
+          <p class="profile-role">Full Stack Developer Intern</p>
+          <p class="employee-id">ID: EMP12345</p>
+          <p class="department">Department: IT</p>
+          <img
+            src="https://thetapacademy.com/_next/static/media/company-logo.1ee5784c.svg"
+            alt="Company Logo"
+            class="company-logo"
+          />
+        </div>
+        <!-- BACK SIDE -->
+        <div class="backcard">
+          <div class="backcard-content">
+            <header>
+              <p class="name">Contact & Info</p>
+            </header>
+            <p class="description">
+              <strong>Email:</strong> medinisree275@gmail.com<br>
+              <strong>Phone:</strong> +91 9900000000<br>
+              <strong>Address:</strong> 123, BTM Layout, Bangalore<br>
+              <strong>Emergency:</strong> +91 8800000000
+            </p>
+            <img
+              src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=EMP12345"
+              alt="QR Code"
+              class="qr-code"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional: Click-to-flip for mobile -->
+    <script>
+      const cardContainer = document.getElementById('idCard');
+      cardContainer.addEventListener('click', function() {
+        this.classList.toggle('flipped');
+      });
+    </script>
+  </body>
+</html>

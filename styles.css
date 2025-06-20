@@ -1,0 +1,185 @@
+@import url("https://fonts.cdnfonts.com/css/samsung-sharp-sans-regular");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Samsung Sharp Sans Bold", sans-serif;
+  line-height: 1.4;
+}
+
+body {
+  background-color: #000000;
+}
+
+/* Container holding the card */
+.card_container {
+  perspective: 1000px;
+  width: 350px;
+  height: 250px;
+  margin: 100px auto;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: card-in 0.8s cubic-bezier(.68,-0.55,.27,1.55) 0.2s forwards;
+  cursor: pointer; /* for click-to-flip on mobile */
+}
+
+/* Flip card base */
+.card {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  position: relative;
+}
+
+.card_container:hover .card,
+.card_container.flipped .card {
+  transform: rotateY(180deg);
+}
+
+/* Shared face styles */
+.frontcard,
+.backcard {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+/* FRONT SIDE STYLES */
+.frontcard {
+  background-color: #ffffff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  margin: 10px auto 8px auto;
+  border: 3px solid #6effec;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  color: #0047d4;
+  margin-bottom: 4px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.profile-role,
+.employee-id,
+.department {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 3px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.company-logo {
+  width: 60px;
+  display: block;
+  margin: 12px auto 0 auto;
+}
+
+/* BACK SIDE with flowing gradient BORDER only */
+.backcard {
+  position: relative;
+  padding: 2px; /* Border thickness */
+  border-radius: 15px;
+  background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045, #833ab4);
+  background-size: 300% 300%;
+  animation: flow-border 3s linear infinite;
+  transform: rotateY(180deg);
+}
+
+/* Inner content with black background */
+.backcard-content {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 13px; /* Slightly smaller than parent for border effect */
+  padding: 16px 20px 12px 20px;
+  height: 100%;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.name {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: #0047d4;
+  margin-bottom: 8px;
+}
+
+.description {
+  font-size: 0.85rem;
+  color: #d8cccc;
+  margin-bottom: 10px;
+}
+
+strong {
+  color: #6effec;
+  text-transform: capitalize;
+}
+
+.qr-code {
+  display: block;
+  margin: 12px auto 0 auto;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+}
+
+/* Animation for gradient border */
+@keyframes flow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Card entrance animation */
+@keyframes card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .card_container {
+    width: 95vw;
+    height: 60vw;
+    min-height: 180px;
+    min-width: 220px;
+  }
+  .profile-pic {
+    width: 60px;
+    height: 60px;
+  }
+  .company-logo {
+    width: 40px;
+  }
+}
